@@ -118,6 +118,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable A2DP offloading in the audio HAL
 AUDIO_FEATURE_ENABLED_A2DP_OFFLOAD := true
 
+# TODO Only for legacy audio HAL
+#AUDIO_FEATURE_ENABLED_SPLIT_A2DP := true
+#AUDIO_FEATURE_ENABLED_BT_HAL := true
+#USE_LIB_PROCESS_GROUP := true
+
+# Bluetooth a2dp offloading
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.bluetooth.a2dp_offload.supported=true \
+    persist.bluetooth.bluetooth_audio_hal.disabled=false \
+    persist.bluetooth.a2dp_offload.disabled=false \
+    persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
+
 # Property to enable user to access Google WFD settings.
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=0
