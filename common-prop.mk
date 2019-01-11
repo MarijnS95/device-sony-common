@@ -234,6 +234,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.lmk.kill_timeout_ms=100 \
     ro.lmk.use_minfree_levels=true
 
+# Bluetooth Audio
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.bluetooth.a2dp_offload.supported=true \
+    persist.bluetooth.bluetooth_audio_hal.disabled=false \
+    persist.bluetooth.a2dp_offload.disabled=false \
+    persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
+
 # Property to enable user to access Google WFD settings.
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=0
