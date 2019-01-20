@@ -115,6 +115,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.lmk.kill_timeout_ms=100 \
     ro.lmk.use_minfree_levels=true
 
+# Enable A2DP offloading in the audio HAL
+AUDIO_FEATURE_ENABLED_A2DP_OFFLOAD := true
+
 # Property to enable user to access Google WFD settings.
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=0
