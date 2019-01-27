@@ -127,7 +127,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth a2dp offloading
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.bluetooth.a2dp_offload.supported=true \
+    ro.bluetooth.a2dp_offload.supported=false \
+    persist.bluetooth.a2dp_offload.disabled=true \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 
 # Property to enable user to access Google WFD settings.
