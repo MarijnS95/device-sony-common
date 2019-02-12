@@ -297,4 +297,8 @@
     <string name="config_wlan_network_service_package">vendor.qti.iwlan</string>
     <string name="config_qualified_networks_service_package">vendor.qti.iwlan</string>
 
+    <!-- Control whether Night display is available. This should only be enabled on devices
+         that have a HWC implementation that can apply the matrix passed to setColorTransform
+         without impacting power, performance, and app compatibility (e.g. protected content). -->
+    <bool name="config_nightDisplayAvailable">true</bool>
 </resources>
