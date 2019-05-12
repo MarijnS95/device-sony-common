@@ -30,4 +30,10 @@
 
     <!-- Should "4G" be shown instead of "LTE" when the network is NETWORK_TYPE_LTE? -->
     <bool name="config_show4GForLTE">false</bool>
+
+    <!-- Max visible notification icons -->
+    <integer name="config_maxVisibleNotificationIcons">9</integer>
+    <integer name="config_maxVisibleNotificationIconsWhenDark">10</integer>
+    <!-- TODO: Doesn't change anything... -->
+    <integer name="status_bar_config_maxNotificationIcons">5</integer>
 </resources>
