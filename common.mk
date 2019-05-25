@@ -49,6 +49,7 @@ BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 PRODUCT_BUILD_RECOVERY_IMAGE := true
 
 BUILD_KERNEL := true
+TARGET_COMPILE_WITH_MSM_KERNEL := $(BUILD_KERNEL)
 -include $(KERNEL_PATH)/common-headers/KernelHeaders.mk
 
 # Codecs Configuration
