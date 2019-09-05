@@ -1,5 +1,9 @@
 # EGL libs
 
+# When GPU drivers are built through mesa,
+# we do not want these symlinks.
+ifndef BOARD_GPU_DRIVERS
+
 LOCAL_PATH := $(call my-dir)
 
 include $(SONY_CLEAR_VARS)
@@ -34,3 +38,5 @@ SONY_SYMLINKS += $(foreach lib_dir,lib lib64, \
 )
 
 include $(SONY_BUILD_SYMLINKS)
+
+endif # BOARD_GPU_DRIVERS == ""
