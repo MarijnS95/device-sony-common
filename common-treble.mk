@@ -25,6 +25,9 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.0
 
 # Audio
+# android.hardware.soundtrigger@2.2-impl:32 \
+# android.hardware.broadcastradio@1.0-impl \
+
 PRODUCT_PACKAGES += \
     android.hardware.audio.effect@5.0-impl:32 \
     android.hardware.audio@2.0-service \

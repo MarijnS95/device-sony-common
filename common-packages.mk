@@ -21,17 +21,28 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libaudio-resampler
 
+PRODUCT_PACKAGES += \
+    libbthost_if
+
 # For audio.primary
 PRODUCT_PACKAGES += \
-    libtinyalsa \
+    cplay \
     libaudioroute \
-    tinymix
+    libtinyalsa \
+    tinycap \
+    tinymix \
+    tinypcminfo \
+    tinyplay
 
 # Audio effects
 PRODUCT_PACKAGES += \
+    libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libqcompostprocbundle
+    libvolumelistener
+
+# TODO Local package in crosshatch \
+    libqcomvoiceprocessingdescriptors \
 
 # Audio deps
 PRODUCT_PACKAGES += \
