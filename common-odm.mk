@@ -22,8 +22,8 @@ PRODUCT_PACKAGES += \
     qseecomd
 
 # IRQ Balance
-PRODUCT_PACKAGES += \
-    msm_irqbalance
+# PRODUCT_PACKAGES += \
+#     msm_irqbalance
 
 # Peripheral Manager
 PRODUCT_PACKAGES += \
