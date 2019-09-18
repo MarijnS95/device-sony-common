@@ -20,38 +20,6 @@ PRODUCT_PACKAGES += \
     libhwbinder.vendor \
     libhidltransport.vendor
 
-# Audio
-PRODUCT_PACKAGES += \
-    audio.a2dp.default:64 \
-    audio.bluetooth.default:64 \
-    audio.hearing_aid.default:64 \
-    audio.r_submix.default:64 \
-    audio.usb.default:64 \
-    libaudio-resampler \
-    libhfp
-
-# Audio - A2DP offloading
-PRODUCT_PACKAGES += \
-    liba2dpoffload \
-    libbthost_if
-
-# For audio.primary
-PRODUCT_PACKAGES += \
-    cplay \
-    libaudioroute \
-    libtinyalsa \
-    tinycap \
-    tinymix \
-    tinypcminfo \
-    tinyplay
-
-# Audio effects
-PRODUCT_PACKAGES += \
-    libqcompostprocbundle \
-    libqcomvisualizer \
-    libqcomvoiceprocessing \
-    libvolumelistener
-
 # TODO Local package in crosshatch \
     libqcomvoiceprocessingdescriptors \
 
@@ -65,68 +33,10 @@ PRODUCT_PACKAGES += \
     libqdutils \
     libqdMetaData
 
-# OMX
-PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libstagefrighthw \
-    libOmxCore \
-    libmm-omxcore \
-    libOmxVdec \
-    libOmxVdecHevc \
-    libOmxVenc
-
-# GPS
-PRODUCT_PACKAGES += \
-    libbatching \
-    libgeofencing \
-    libgnss
-
-# Location
-PRODUCT_PACKAGES += \
-    libloc_api_v02 \
-    libgnsspps \
-    libsynergy_loc_api
-
-# IMS (OSS)
-PRODUCT_PACKAGES += \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    qti-telephony-utils \
-    qti_telephony_utils.xml \
-    telephony-ext \
-    ims-ext-common \
-    ims_ext_common.xml
-
-# IPA
-PRODUCT_PACKAGES += \
-    libqti_vndfwk_detect.vendor \
-    IPACM_cfg.xml \
-    ipacm
-
-# WLAN
-PRODUCT_PACKAGES += \
-    hostapd \
-    libwpa_client \
-    wpa_supplicant \
-    wpa_supplicant.conf \
-    libwpa_client
-
 # NFC packages
 PRODUCT_PACKAGES += \
     NfcNci \
     Tag
-
-# CAMERA
-PRODUCT_PACKAGES += \
-    libmmcamera_interface \
-    libmmjpeg_interface \
-    libmmlib2d_interface \
-    libmm-qcamera \
-    libqomx_core
-
-# Media
-PRODUCT_PACKAGES += \
-    libavservices_minijail.vendor
 
 # OSS Time service
 PRODUCT_PACKAGES += \
@@ -140,22 +50,6 @@ PRODUCT_PACKAGES += \
 # OSS WIFI and BT MAC tool
 PRODUCT_PACKAGES += \
     macaddrsetup
-
-# Carrier configuration
-PRODUCT_PACKAGES += \
-    CarrierConfig
-
-# Telephony
-PRODUCT_PACKAGES += \
-    HookMediator \
-    ImsHelper \
-    ModemConfig \
-    QcRilAm \
-    SimDetect
-
-# QCOM Data
-PRODUCT_PACKAGES += \
-    librmnetctl
 
 # RIL
 PRODUCT_PACKAGES += \
