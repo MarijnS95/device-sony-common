@@ -115,6 +115,7 @@ private:
     std::mutex mLcdLock;
     int mBacklightMax = 0;
     int mBacklightShift = 0;
+    int mLastBrightness = 255;
 
     Brightness mLastBacklightMode;
     LightState batteryState;
