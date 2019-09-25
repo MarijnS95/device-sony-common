@@ -19,6 +19,7 @@
 
 #include <android-base/logging.h>
 #include <fstream>
+#include <ios>
 
 #include "Light.h"
 
@@ -193,6 +194,14 @@ int Light::setLightBacklight(const LightState &state)
 #endif
 
     if (!err) {
+        if (brightness > 10)
+            // TODO: This value is ONLY for calculating a rescaled LED.
+            // Since we do not recalculate it based on the light intensity sensor values,
+            // make sure it never goes to zero.
+            // More importantly, make sure the very low brightness in AOD doesn't set the
+            // LED extremely dim on a day.
+            mLastBrightness = brightness;
+
         if (mBacklightShift) {
             // Use bit-shifting optimizations:
             // (For demo/"coolness" purposes only; saved cycles are negligible)
@@ -206,6 +215,13 @@ int Light::setLightBacklight(const LightState &state)
 #else
         err = writeInt(LCD_FILE, brightness);
 #endif
+    }
+
+    if (isLit(batteryState) || isLit(notificationState)) {
+        // Update LED only if it is turned on.
+        // (We should also check whether last_brightness changed)
+        std::lock_guard<std::mutex> lock(mLock);
+        handleSpeakerBatteryLocked();
     }
 
     return err;
@@ -237,9 +253,19 @@ int Light::setSpeakerLightLocked(const LightState &state)
             " colorRGB=" << colorRGB << " onMS=" << onMS << " offMS=" << offMS;
 #endif
 
-    red = (colorRGB >> 16) & 0xFF;
-    green = (colorRGB >> 8) & 0xFF;
-    blue = colorRGB & 0xFF;
+    uint32_t rgb = state.color;
+
+    if (mLastBrightness > 0 && /* Sanity check only: */ mLastBrightness < 256) {
+        // Poor-mans SIMD:
+        uint32_t rb = (rgb & 0xff00ff) * mLastBrightness / 255;
+        rgb = rb | (rgb & 0xff00) * mLastBrightness / 255;
+    }
+
+    LOG(INFO) << std::hex << "Rescaling LED color from " << state.color << " to " << rgb;
+
+    red = rgb >> 16 & 0xFF;
+    green = rgb >> 8 & 0xFF;
+    blue = rgb & 0xFF;
     blink = onMS > 0 && offMS > 0;
 
     if (isRgbSyncAvailable()) {
