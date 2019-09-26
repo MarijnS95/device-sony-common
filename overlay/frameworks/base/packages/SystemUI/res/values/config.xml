@@ -36,4 +36,17 @@
     <integer name="config_maxVisibleNotificationIconsWhenDark">10</integer>
     <!-- TODO: Doesn't change anything... -->
     <integer name="status_bar_config_maxNotificationIcons">5</integer>
+
+    <!-- The number of columns in the QuickSettings -->
+    <integer name="quick_settings_num_columns">6</integer>
+
+    <!-- The default tiles to display in QuickSettings -->
+    <string name="quick_settings_tiles_default" translatable="false">
+        wifi,cell,bt,dnd,flashlight,rotation,battery,location,airplane,cast,hotspot,inversion,saver,dark,work,night
+    </string>
+
+    <!-- Tiles native to System UI. Order should match "quick_settings_tiles_default" -->
+    <string name="quick_settings_tiles_stock" translatable="false">
+        wifi,cell,bt,dnd,flashlight,rotation,battery,location,airplane,cast,hotspot,inversion,saver,dark,work,night
+    </string>
 </resources>
