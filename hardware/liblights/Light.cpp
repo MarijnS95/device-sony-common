@@ -93,6 +93,8 @@ int Light::writeInt(const std::string &path, int value)
         return -errno;
     }
 
+    LOG(INFO) << path << " = " << value;
+
     stream << value << std::endl;
 
     return 0;
@@ -124,12 +126,14 @@ int Light::writeStr(const std::string &path, const std::string &value)
         return -errno;
     }
 
+    LOG(INFO) << path << " = " << value;
+
     stream << value << std::endl;
 
     return 0;
 }
 
-std::string Light::getScaledDutyPcts(int brightness)
+std::string Light::getScaledDutyPcts(int brightness, int idle_brightness)
 {
     std::string buf, pad;
 
@@ -139,7 +143,7 @@ std::string Light::getScaledDutyPcts(int brightness)
 
     for (auto i : BRIGHTNESS_RAMP) {
         buf += pad;
-        buf += std::to_string(i * brightness / 255);
+        buf += std::to_string((i * brightness + (100 - i) * idle_brightness) / 255);
         pad = ",";
     }
 
@@ -219,20 +223,55 @@ int Light::setLightBacklight(const LightState &state)
 
     if (isLit(batteryState) || isLit(notificationState)) {
         // Update LED only if it is turned on.
-        // (We should also check whether last_brightness changed)
+        // (We should also check whether mLastBrightness changed)
         std::lock_guard<std::mutex> lock(mLock);
-        handleSpeakerBatteryLocked();
+        setNotificationLEDLocked();
     }
 
     return err;
 }
 
-int Light::setSpeakerLightLocked(const LightState &state)
+static uint32_t scaleColor(uint32_t rgb, int factor)
+{
+    // Poor-mans SIMD:
+    uint32_t rb = (rgb & 0xff00ff) * factor / 255;
+    return rb | (rgb & 0xff00) * factor / 255;
+}
+
+int Light::setNotificationLEDLocked()
 {
     int red, green, blue;
     bool blink;
     int onMS, offMS;
-    unsigned int colorRGB;
+    LightState state;
+    uint32_t rgb = 0, base_rgb = 0;
+
+    if (isLit(batteryState) && isLit(notificationState)) {
+        LOG(INFO) << "battery and notification lit";
+        // If in a notification+battery state, try to merge the colors.
+        // The battery provides the base, with the blinks blending it to
+        // the notification color briefly.
+        // Yes, this will cause a discrepancy with a green notification on
+        // a fully charged battery. Can be fixed by introducing extra off.
+        // (So, ramp from battery to off, then to notification, back to off, then to battery)
+        if (batteryState.flashMode != Flash::NONE) {
+            // Low batter, or something like that. See if we can merge two flashing lights.
+            state = batteryState;
+        } else {
+            if (notificationState.flashMode == Flash::NONE)
+                LOG(WARNING) << "Vague non-blinking notification. Blink-blending with battery anyway";
+            state = notificationState;
+            base_rgb = batteryState.color;
+            if (mLastBrightness > 0 && /* Sanity check only: */ mLastBrightness < 256)
+                base_rgb = scaleColor(base_rgb, mLastBrightness);
+            LOG(INFO) << std::hex << "base_rgb " << base_rgb;
+        }
+
+    } else if (isLit(batteryState)) {
+        state = batteryState;
+    } else {
+        state = notificationState;
+    }
 
     switch (state.flashMode) {
     case Flash::TIMED:
@@ -246,20 +285,15 @@ int Light::setSpeakerLightLocked(const LightState &state)
         break;
     }
 
-    colorRGB = state.color;
-
 #if 0
     LOG(DEBUG) << "set_speaker_light_locked mode " << state->flashMode <<
             " colorRGB=" << colorRGB << " onMS=" << onMS << " offMS=" << offMS;
 #endif
 
-    uint32_t rgb = state.color;
+    rgb = state.color;
 
-    if (mLastBrightness > 0 && /* Sanity check only: */ mLastBrightness < 256) {
-        // Poor-mans SIMD:
-        uint32_t rb = (rgb & 0xff00ff) * mLastBrightness / 255;
-        rgb = rb | (rgb & 0xff00) * mLastBrightness / 255;
-    }
+    if (mLastBrightness > 0 && /* Sanity check only: */ mLastBrightness < 256)
+        rgb = scaleColor(rgb, mLastBrightness);
 
     LOG(INFO) << std::hex << "Rescaling LED color from " << state.color << " to " << rgb;
 
@@ -274,9 +308,9 @@ int Light::setSpeakerLightLocked(const LightState &state)
 
     if (blink) {
         if (isRgbSyncAvailable()) {
-            writeStr(RED_LED_DUTY_PCTS_FILE, getScaledDutyPcts(red));
-            writeStr(GREEN_LED_DUTY_PCTS_FILE, getScaledDutyPcts(green));
-            writeStr(BLUE_LED_DUTY_PCTS_FILE, getScaledDutyPcts(blue));
+            writeStr(RED_LED_DUTY_PCTS_FILE, getScaledDutyPcts(red, base_rgb >> 16 & 0xff));
+            writeStr(GREEN_LED_DUTY_PCTS_FILE, getScaledDutyPcts(green, base_rgb >> 8 & 0xff));
+            writeStr(BLUE_LED_DUTY_PCTS_FILE, getScaledDutyPcts(blue, base_rgb & 0xff));
 
             writeInt(RED_LED_BASE + "pause_lo", offMS);
             writeInt(GREEN_LED_BASE + "pause_lo", offMS);
@@ -313,28 +347,25 @@ int Light::setSpeakerLightLocked(const LightState &state)
     return 0;
 }
 
-void Light::handleSpeakerBatteryLocked()
-{
-    if (isLit(batteryState)) {
-        setSpeakerLightLocked(batteryState);
-    } else {
-        setSpeakerLightLocked(notificationState);
-    }
-}
-
 int Light::setLightBattery(const LightState &state)
 {
     std::lock_guard<std::mutex> lock(mLock);
+
+    LOG(INFO) << std::hex << __func__ << ": " << state.color;
+
     batteryState = state;
-    handleSpeakerBatteryLocked();
+    setNotificationLEDLocked();
     return 0;
 }
 
 int Light::setLightNotifications(const LightState &state)
 {
     std::lock_guard<std::mutex> lock(mLock);
+
+    LOG(INFO) << std::hex << __func__ << ": " << state.color;
+
     notificationState = state;
-    handleSpeakerBatteryLocked();
+    setNotificationLEDLocked();
     return 0;
 }
 
