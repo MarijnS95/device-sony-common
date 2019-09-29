@@ -14,6 +14,8 @@
 
 -include device/sony/customization/Customization.mk
 
+WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
+
 # Common path
 COMMON_PATH := device/sony/common
 
