@@ -15,4 +15,5 @@
      -->
     <bool name="strict_location_check">false</bool>
 
+    <bool name="profile_supported_hearing_aid">true</bool>
 </resources>

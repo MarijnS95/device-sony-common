@@ -22,8 +22,4 @@
     <!-- When true enable color temperature setting. -->
     <bool name="config_enableColorTemperature">true</bool>
 
-    <!-- Whether to show Connected MAC Randomization in Developer Options
-         as not all devices can support dynamic MAC address change.  -->
-    <bool name="config_wifi_support_connected_mac_randomization">false</bool>
-
 </resources>
