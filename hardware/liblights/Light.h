@@ -133,9 +133,10 @@ private:
     int setLightBacklight(const LightState &state);
     int setLightBattery(const LightState &state);
     int setLightNotifications(const LightState &state);
-    int setNotificationLEDLocked();
+    void handleSpeakerBatteryLocked();
+    int setSpeakerLightLocked(const LightState &state);
 
-    static std::string getScaledDutyPcts(int brightness, int idle_brightness = 0);
+    static std::string getScaledDutyPcts(int brightness);
     static int isLit(const LightState &state);
     static bool isRgbSyncAvailable();
     static int rgbToBrightness(const LightState &state);
