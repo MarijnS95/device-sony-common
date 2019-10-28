@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <bool name="profile_supported_sap">true</bool>
-    <bool name="profile_supported_hearing_aid">true</bool>
-    <bool name="profile_supported_a2dp_sink">true</bool>
-    <bool name="profile_supported_hfpclient">true</bool>
-    <bool name="profile_supported_avrcp_controller">true</bool>
-    <bool name="profile_supported_pbapclient">false</bool>
 
-    <bool name="a2dp_sink_automatically_request_audio_focus">true</bool>
+    <bool name="profile_supported_sap">true</bool>
 
     <!-- If true, we will require location to be enabled on the device to
          fire Bluetooth LE scan result callbacks in addition to having one
@@ -20,4 +14,6 @@
          Could potentially impede users' privacy as well.
      -->
     <bool name="strict_location_check">false</bool>
+
+    <bool name="profile_supported_hearing_aid">true</bool>
 </resources>
