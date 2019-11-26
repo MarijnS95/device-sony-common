@@ -140,6 +140,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.bluetooth.a2dp_offload.disabled=false \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 
+# TODO:
+#define SYSPROP_A2DP_CODEC_LATENCIES   "vendor.audio.a2dp.codec.latency"
+
 # Property to enable user to access Google WFD settings.
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=0
