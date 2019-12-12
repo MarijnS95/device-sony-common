@@ -13,13 +13,14 @@
 # limitations under the License.
 
 # Common init services
+    #ipacm.rc \
+
 PRODUCT_PACKAGES += \
     init.usb.rc \
     adb_tcp.rc \
     adsprpcd.rc \
     cdsprpcd.rc \
     cnss-daemon.rc \
-    ipacm.rc \
     dpmQmiMgr.rc \
     imsdatadaemon.rc \
     imsqmidaemon.rc \
