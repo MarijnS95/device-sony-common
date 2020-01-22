@@ -11,5 +11,4 @@
          Could potentially impede users' privacy as well.
      -->
     <bool name="strict_location_check">false</bool>
-
 </resources>
