@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/",
+                "${workspaceFolder}/../../../../../system/core/base/include",
+                "${workspaceFolder}/../../../../../system/core/liblog/include",
+                "${workspaceFolder}/../../../../../system/core/libutils/include",
+                "${workspaceFolder}/../../../../../system/core/libcutils/include",
+                "${workspaceFolder}/../../../../../system/core/libsystem/include",
+                "${workspaceFolder}/../../../../../system/libhidl/base/include",
+                "${workspaceFolder}/../../../../../system/libhidl/transport/include",
+                "${workspaceFolder}/../../../../../system/libhwbinder/include",
+                "${workspaceFolder}/../../../../../hardware/libhardware/include",
+                "${workspaceFolder}/../../../../../out/target/product/discovery/obj/KERNEL_OBJ/usr/include",
+                "${workspaceFolder}/../../../../../out/soong/.intermediates/hardware/interfaces/light/2.0/android.hardware.light@2.0_genc++_headers/gen",
+                "${workspaceFolder}/../../../../../out/soong/.intermediates/system/libhidl/transport/base/1.0/android.hidl.base@1.0_genc++_headers/gen",
+                "${workspaceFolder}/../../../../../out/soong/.intermediates/system/libhidl/transport/manager/1.0/android.hidl.manager@1.0_genc++_headers/gen",
+                "${workspaceFolder}/../../../../../kernel/sony/msm-4.14/common-headers/kernel-headers/"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}
