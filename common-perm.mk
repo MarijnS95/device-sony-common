@@ -15,6 +15,7 @@
 # Common Specific Permissions
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/rootdir/vendor/etc/permissions/enable_deprecated_beam.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/enable_deprecated_beam.xml \
+    $(COMMON_PATH)/rootdir/vendor/etc/permissions/extra.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/extra.xml \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
