@@ -134,6 +134,7 @@ private:
     int setLightBattery(const LightState &state);
     int setLightNotifications(const LightState &state);
     void handleSpeakerBatteryLocked();
+    void blinkLed(const std::string &base_path, int brightness, int onMS, int offMS);
     int setSpeakerLightLocked(const LightState &state);
 
     static std::string getScaledDutyPcts(int brightness);
