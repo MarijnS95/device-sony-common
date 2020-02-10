@@ -26,9 +26,13 @@ PRODUCT_PACKAGES += \
 
 # For audio.primary
 PRODUCT_PACKAGES += \
-    libtinyalsa \
+    cplay \
     libaudioroute \
-    tinymix
+    libtinyalsa \
+    tinycap \
+    tinymix \
+    tinypcminfo \
+    tinyplay
 
 # Audio effects
 PRODUCT_PACKAGES += \
