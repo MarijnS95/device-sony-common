@@ -49,6 +49,9 @@ PRODUCT_PACKAGES += \
     android.system.net.netd@1.1.vendor
 
 # Audio
+# android.hardware.soundtrigger@2.2-impl:32 \
+# android.hardware.broadcastradio@1.0-impl \
+
 PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl:32 \
     android.hardware.audio.service \
