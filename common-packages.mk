@@ -31,7 +31,8 @@ PRODUCT_PACKAGES += \
 
 # Audio - A2DP offloading
 PRODUCT_PACKAGES += \
-    liba2dpoffload
+    liba2dpoffload \
+    libbthost_if
 
 # For audio.primary
 PRODUCT_PACKAGES += \
