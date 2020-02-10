@@ -21,6 +21,9 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libaudio-resampler
 
+PRODUCT_PACKAGES += \
+    libbthost_if
+
 # For audio.primary
 PRODUCT_PACKAGES += \
     libtinyalsa \
