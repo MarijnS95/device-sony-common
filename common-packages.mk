@@ -46,9 +46,13 @@ PRODUCT_PACKAGES += \
 
 # Audio effects
 PRODUCT_PACKAGES += \
+    libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libqcompostprocbundle
+    libvolumelistener
+
+# TODO Local package in crosshatch \
+    libqcomvoiceprocessingdescriptors \
 
 # Audio deps
 PRODUCT_PACKAGES += \
