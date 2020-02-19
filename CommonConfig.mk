@@ -129,6 +129,7 @@ DEVICE_MATRIX_FILE   := $(COMMON_PATH)/vintf/compatibility_matrix.xml
 
 # Custom NXP vendor interfaces
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.nxp.nfc.interfaces.xml
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.qualcomm.qti.dpm.xml
 
 ifeq ($(PRODUCT_DEVICE_DS),true)
 ifeq ($(TARGET_USE_QCRILD),true)
