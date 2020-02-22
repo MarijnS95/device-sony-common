@@ -18,8 +18,10 @@ MASTER_SIDE_CP_TARGET_LIST := msm8996 msm8998 sdm660 sdm845 sm6125 sm8150 sm8250
 
 ifneq ($(filter $(QCOM_NEW_MEDIA_PLATFORM), $(TARGET_BOARD_PLATFORM)),)
 QCOM_MEDIA_ROOT := vendor/qcom/opensource/media/sm8150
-else
+else ifneq ($(SOMC_KERNEL_VERSION),4.9)
 QCOM_MEDIA_ROOT := vendor/qcom/opensource/media/sdm660-libion
+else
+QCOM_MEDIA_ROOT := hardware/qcom/media/msm8998
 endif
 
 OMX_VIDEO_PATH := mm-video-v4l2
