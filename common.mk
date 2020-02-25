@@ -21,6 +21,9 @@ PRODUCT_SOONG_NAMESPACES += \
     $(PLATFORM_COMMON_PATH) \
     vendor/qcom/opensource/core-utils
 
+# \
+    hardware/qcom/display/sde
+
 # Common path
 COMMON_PATH := device/sony/common
 
