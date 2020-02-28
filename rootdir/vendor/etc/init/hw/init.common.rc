@@ -103,7 +103,9 @@ on fs
     # (Android <= 9): Remove "security.restorecon_last" xattr from /mnt/vendor/persist/
     exec u:r:vendor_toolbox:s0 root root -- /vendor/bin/toybox_vendor setfattr -x security.restorecon_last /mnt/vendor/persist/
     # (Android >= 10): Remove "security.sehash" xattr from /mnt/vendor/persist/
-    exec u:r:vendor_toolbox:s0 root root -- /vendor/bin/toybox_vendor setfattr -x security.sehash /mnt/vendor/persist/
+    # Find groups using `find /persist/ -exec stat -c "%G" {} \+ | sort -u`
+    exec u:r:vendor_toolbox:s0 root root shell audio bluetooth graphics media net_raw system oem_2903 oem_2904 oem_2993 -- /vendor/bin/toybox_vendor find /mnt/vendor/persist -type d -exec /vendor/bin/toybox_vendor setfattr -x security.sehash {} \;
+
     # And force restoring of SELinux labels
     restorecon_recursive /mnt/vendor/persist/
 
