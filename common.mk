@@ -19,7 +19,9 @@
 # https://android.googlesource.com/platform/build/soong/+/master/README.md#name-resolution
 PRODUCT_SOONG_NAMESPACES += \
     $(PLATFORM_COMMON_PATH) \
-    vendor/qcom/opensource/core-utils
+    vendor/qcom/opensource/core-utils \
+    hardware/qcom/gps \
+    vendor/qcom/opensource/location
 
 # \
     hardware/qcom/display/sde
