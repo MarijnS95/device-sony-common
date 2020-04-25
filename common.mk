@@ -27,8 +27,6 @@ PRODUCT_SOONG_NAMESPACES += \
 # Common path
 COMMON_PATH := device/sony/common
 
-AUDIOSERVER_MULTILIB := 64
-
 # Build scripts
 SONY_CLEAR_VARS := $(COMMON_PATH)/sony_clear_vars.mk
 SONY_BUILD_SYMLINKS := $(COMMON_PATH)/sony_build_symlinks.mk
