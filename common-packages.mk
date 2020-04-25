@@ -22,11 +22,11 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    audio.bluetooth.default \
-    audio.hearing_aid.default \
-    audio.r_submix.default \
-    audio.usb.default \
+    audio.a2dp.default:64 \
+    audio.bluetooth.default:64 \
+    audio.hearing_aid.default:64 \
+    audio.r_submix.default:64 \
+    audio.usb.default:64 \
     libaudio-resampler
 
 # Audio - A2DP offloading
