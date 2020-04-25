@@ -37,6 +37,9 @@ PRODUCT_SOONG_NAMESPACES += \
 # \
     hardware/qcom/display/sde
 
+# Build for primary target arch only, instead of 32-bit
+AUDIOSERVER_MULTILIB := first
+
 # Build scripts
 SONY_CLEAR_VARS := $(COMMON_PATH)/sony_clear_vars.mk
 SONY_BUILD_SYMLINKS := $(COMMON_PATH)/sony_build_symlinks.mk
