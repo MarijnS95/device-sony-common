@@ -38,6 +38,14 @@ PRODUCT_SOONG_NAMESPACES += \
 # \
     hardware/qcom/display/sde
 
+# Build for primary target arch only, instead of 32-bit
+AUDIOSERVER_MULTILIB := first
+# TODO: Is ↑ deprecated in favor of ↓?
+# https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1891181
+SOONG_CONFIG_NAMESPACES += android_hardware_audio
+SOONG_CONFIG_android_hardware_audio += run_64bit
+SOONG_CONFIG_android_hardware_audio_run_64bit := true
+
 # Build scripts
 SONY_CLEAR_VARS := $(COMMON_PATH)/sony_clear_vars.mk
 SONY_BUILD_SYMLINKS := $(COMMON_PATH)/sony_build_symlinks.mk

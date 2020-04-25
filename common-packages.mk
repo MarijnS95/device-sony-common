@@ -21,10 +21,11 @@ PRODUCT_PACKAGES += \
     libhidltransport.vendor
 
 # Audio
+# TODO: :64 shouldn't be needed, only causes 32-bit libs to not be built
 PRODUCT_PACKAGES += \
-    audio.bluetooth.default \
-    audio.r_submix.default \
-    audio.usb.default \
+    audio.bluetooth.default:64 \
+    audio.r_submix.default:64 \
+    audio.usb.default:64 \
     audioadsprpcd \
     libaudio-resampler
 
