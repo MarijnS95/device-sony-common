@@ -4,33 +4,14 @@ PRODUCT_PACKAGES += \
 
 # Composer
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.display.composer-service
-
-# Linked by Adreno/EGL blobs for fallback if 3.0 doesn't exist
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.display.mapper@2.0.vendor
-
-# Graphics allocator/mapper
-ifeq ($(TARGET_HARDWARE_GRAPHICS_V3),true)
-
-PRODUCT_PACKAGES += \
-    android.hardware.graphics.mapper@3.0-impl-qti-display \
-    android.hardware.graphics.mapper@4.0-impl-qti-display
-
-# android.hardware.graphics.allocator@3.0::IAllocator, and
-# android.hardware.graphics.allocator@4.0::IAllocator if
-# TARGET_USES_GRALLOC4 is not explicitly set to `false`:
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.display.allocator-service
-
-else
+    android.hardware.graphics.composer@2.3-impl:64 \
+    android.hardware.graphics.composer@2.3-service \
 
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl:64 \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.mapper@2.0-impl-2.1
-
-endif
+    # android.hardware.graphics.mapper@2.0-service \
 
 # Memtrack
 PRODUCT_PACKAGES += \

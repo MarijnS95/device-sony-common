@@ -29,9 +29,16 @@ PRODUCT_PACKAGES += \
 
 # GFX
 PRODUCT_PACKAGES += \
-    libhdmi \
-    libqdutils \
-    libqdMetaData
+    libhdmi
+
+PRODUCT_PACKAGES += \
+    gralloc.gbm \
+    hwcomposer.drm \
+    libGLES_mesa \
+    gallium_dri
+
+PRODUCT_PACKAGES += \
+    memtrack.default
 
 # NFC packages
 PRODUCT_PACKAGES += \
