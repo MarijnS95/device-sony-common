@@ -49,4 +49,11 @@
     <string name="quick_settings_tiles_stock" translatable="false">
         wifi,cell,bt,dnd,flashlight,rotation,battery,location,airplane,cast,hotspot,inversion,saver,dark,work,night
     </string>
+
+    <!-- Whether or not we show the number in the bar. -->
+    <bool name="config_statusBarShowNumber">true</bool>
+
+    <!-- The maximum count of notifications on Keyguard. The rest will be collapsed in an overflow
+     card. -->
+    <integer name="keyguard_max_notification_count">10</integer>
 </resources>
