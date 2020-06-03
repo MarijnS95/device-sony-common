@@ -217,9 +217,6 @@ int Light::setLightBacklight(const LightState &state)
 
 void Light::blinkLed(const std::string &base_path, int brightness, int onMS, int offMS)
 {
-    LOG(VERBOSE) << "Writing blinking " << brightness << " to " << base_path;
-    writeInt(base_path + "brightness", brightness);
-
     if (brightness) {
         writeInt(base_path + "delay_on", onMS);
         writeInt(base_path + "delay_off", offMS);
@@ -263,14 +260,14 @@ int Light::setSpeakerLightLocked(const LightState &state)
     writeInt(GREEN_LED_BREATH_FILE, 0);
     writeInt(BLUE_LED_BREATH_FILE, 0);
 
+    writeInt(RED_LED_FILE, red);
+    writeInt(GREEN_LED_FILE, green);
+    writeInt(BLUE_LED_FILE, blue);
+
     if (blink) {
         blinkLed(RED_LED_BASE, red, onMS, offMS);
         blinkLed(GREEN_LED_BASE, green, onMS, offMS);
         blinkLed(BLUE_LED_BASE, blue, onMS, offMS);
-    } else {
-        writeInt(RED_LED_FILE, red);
-        writeInt(GREEN_LED_FILE, green);
-        writeInt(BLUE_LED_FILE, blue);
     }
 
     return 0;
