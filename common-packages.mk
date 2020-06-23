@@ -28,6 +28,10 @@ PRODUCT_PACKAGES += \
     audioadsprpcd \
     libaudio-resampler
 
+# Audio - A2DP offloading
+PRODUCT_PACKAGES += \
+    liba2dpoffload
+
 # For audio.primary
 PRODUCT_PACKAGES += \
     libtinyalsa \
