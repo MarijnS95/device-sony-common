@@ -173,13 +173,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio Features
 PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.audio.feature.a2dp_offload.enable=true \
     vendor.audio.feature.afe_proxy.enable=true \
     vendor.audio.feature.anc_headset.enable=true \
+    vendor.audio.feature.audiozoom.enable=false \
     vendor.audio.feature.battery_listener.enable=false \
     vendor.audio.feature.compr_cap.enable=false \
+    vendor.audio.feature.compr_voip.enable=false \
     vendor.audio.feature.compress_in.enable=false \
     vendor.audio.feature.compress_meta_data.enable=true \
-    vendor.audio.feature.compr_voip.enable=false \
+    vendor.audio.feature.deepbuffer_as_primary.enable=false \
     vendor.audio.feature.dsm_feedback.enable=false \
     vendor.audio.feature.ext_hw_plugin.enable=false \
     vendor.audio.feature.external_dsp.enable=false \
@@ -191,22 +194,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.feature.hifi_audio.enable=false \
     vendor.audio.feature.hwdep_cal.enable=false \
     vendor.audio.feature.incall_music.enable=false \
-    vendor.audio.feature.multi_voice_session.enable=true \
     vendor.audio.feature.keep_alive.enable=false \
     vendor.audio.feature.maxx_audio.enable=false \
+    vendor.audio.feature.multi_voice_session.enable=true \
     vendor.audio.feature.ras.enable=true \
     vendor.audio.feature.record_play_concurency.enable=false \
-    vendor.audio.feature.src_trkn.enable=true \
+    vendor.audio.feature.snd_mon.enable=true \
     vendor.audio.feature.spkr_prot.enable=true \
+    vendor.audio.feature.src_trkn.enable=true \
     vendor.audio.feature.ssrec.enable=true \
     vendor.audio.feature.usb_offload.enable=true \
     vendor.audio.feature.usb_offload_burst_mode.enable=false \
     vendor.audio.feature.usb_offload_sidetone_volume.enable=false \
-    vendor.audio.feature.deepbuffer_as_primary.enable=false \
     vendor.audio.feature.vbat.enable=true \
-    vendor.audio.feature.wsa.enable=false \
-    vendor.audio.feature.audiozoom.enable=false \
-    vendor.audio.feature.snd_mon.enable=true
+    vendor.audio.feature.wsa.enable=false
 
 # AudioPolicy Manager
 PRODUCT_PROPERTY_OVERRIDES += \
