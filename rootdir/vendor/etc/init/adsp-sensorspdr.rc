@@ -3,3 +3,6 @@ service vendor.sensorspd /odm/bin/adsprpcd sensorspd
    user system
    group system
    disabled
+
+on property:vendor.qcom.slpiup=1
+    enable vendor.sensorspd
