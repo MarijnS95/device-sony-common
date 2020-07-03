@@ -38,12 +38,9 @@ on init
     # vold needs keymaster that needs qseecomd
     start vendor.qseecomd
 
+    # TODO: Move KM3 init as well
     # Keymaster 3
     start vendor.keymaster-3-0
-    # Keymaster 4
-    start vendor.keymaster-4-0
-    # Keymaster 4
-    start vendor.keymaster-4-1
     # Start vndservicemanager early
     start vndservicemanager
 
