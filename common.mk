@@ -78,7 +78,9 @@ PRODUCT_BUILD_BOOT_IMAGE := true
 # Our devices do not support it
 PRODUCT_BUILD_VENDOR_BOOT_IMAGE := false
 
-KERNEL_PATH ?= kernel/sony/msm-$(SOMC_KERNEL_VERSION)
+SOMC_KERNEL_VERSION := mainline
+KERNEL_PATH := kernel/$(SOMC_KERNEL_VERSION)
+
 # Sanitized prebuilt kernel headers
 -include $(KERNEL_PATH)/common-headers/KernelHeaders.mk
 
