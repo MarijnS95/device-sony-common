@@ -212,11 +212,7 @@ DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.qti.spu.xml
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/android.hardware.authsecret_v1.0.xml
 endif
 
-ifeq ($(TARGET_KEYMASTER_V4),true)
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/android.hw.keymaster_v4.xml
-else
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/android.hw.keymaster_v3.xml
-endif
 
 # Only define bootctrl HAL availability on AB platforms:
 ifeq ($(AB_OTA_UPDATER),true)

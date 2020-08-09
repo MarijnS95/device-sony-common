@@ -62,10 +62,8 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/rootdir/product/etc/permissions/privapp-permissions-ims.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-ims.xml
 
 # Keymaster 4 and StrongBox Permissions
-ifeq ($(TARGET_KEYMASTER_V4),true)
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
-endif
 
 # Transmit power
 PRODUCT_COPY_FILES += \

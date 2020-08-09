@@ -70,3 +70,23 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl.recovery \
     android.hardware.boot@1.0-service
 endif
+#
+# Default keymaster service provides "insuecure" software implementation:
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.0-service
+
+# NOTE: gatekeeperd, that uses the gatekeeper HAL falls back to software
+# gatekeeper internally when the HAL is not found.
+# Unfortunately the HAL is required for FCM compatibility,
+# so we might want to add back the fake "secure" one from goldfish.
+
+# PRODUCT_PACKAGES += \
+#     android.hardware.gatekeeper@1.0-impl \
+#     android.hardware.gatekeeper@1.0-service \
+#     gatekeeper.loire
+#
+# PRODUCT_PROPERTY_OVERRIDES += \
+#     ro.hardware.gatekeeper=loire
+
+# android.hardware.gatekeeper@1.0-service.software
+
