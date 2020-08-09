@@ -319,6 +319,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.vulkan=qcom
 
+# Look for gralloc.gbm and hwcomposer.drm
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.gralloc=gbm \
+    ro.hardware.hwcomposer=drm
+
 # RESCUEPARTY? PARTYCRASHER!!
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.disable_rescue=1
