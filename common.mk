@@ -59,6 +59,8 @@ ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 endif
 
+# OVERRIDE_PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := false
+
 # Force using the following regardless of shipping API level:
 #   PRODUCT_TREBLE_LINKER_NAMESPACES
 #   PRODUCT_SEPOLICY_SPLIT
