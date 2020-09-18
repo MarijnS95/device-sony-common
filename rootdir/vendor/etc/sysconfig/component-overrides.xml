@@ -16,10 +16,5 @@
 <config>
     <component-override package="com.android.bluetooth" >
         <component class=".sap.SapService" enabled="true" />
-        <component class=".hearingaid.HearingAidService" enabled="true" />
-        <component class=".a2dpsink.A2dpSinkService" enabled="true" />
-        <component class=".hfpclient.HeadsetClientService" enabled="true" />
-        <component class=".avrcpcontroller.AvrcpControllerService" enabled="true" />
-        <component class=".pbapclient.PbapClientService" enabled="true" />
     </component-override>
 </config>
