@@ -25,9 +25,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.qmi.adb_logmask=0
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.adb.trace_mask=1
-
 # configure adb over wifi only on the eng build
 ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PROPERTY_OVERRIDES += \
