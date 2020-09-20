@@ -40,6 +40,11 @@
     <!-- The number of columns in the QuickSettings -->
     <integer name="quick_settings_num_columns">6</integer>
 
+    <!-- The maximum number of rows in the QuickSettings -->
+    <!-- Needs to be 4, as useQsMediaPlayer always returns true
+         and reduces the number from 3 to 2 already. -->
+    <integer name="quick_settings_max_rows">4</integer>
+
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_default" translatable="false">
         wifi,cell,bt,dnd,flashlight,rotation,battery,location,airplane,cast,hotspot,inversion,saver,dark,work,night,screenrecord,reverse
