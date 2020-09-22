@@ -80,9 +80,11 @@ TARGET_USES_COLOR_METADATA := true
 TARGET_USES_HWC2 := true
 TARGET_USES_DISPLAY_RENDER_INTENTS := true
 
+ifeq ($(TARGET_USES_GRALLOC1),true)
 SOONG_CONFIG_NAMESPACES += gralloc
-SOONG_CONFIG_gralloc := version
-SOONG_CONFIG_gralloc_version := $(if $(filter $(TARGET_USES_GRALLOC1),true),v1,next)
+SOONG_CONFIG_gralloc := use_v1
+SOONG_CONFIG_gralloc_use_v1 := true
+endif
 
 # Audio
 USE_XML_AUDIO_POLICY_CONF := 1
