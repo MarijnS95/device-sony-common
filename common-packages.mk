@@ -27,7 +27,8 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default:64 \
     audio.usb.default:64 \
     audioadsprpcd \
-    libaudio-resampler
+    libaudio-resampler \
+    libhfp
 
 # Audio - A2DP offloading
 PRODUCT_PACKAGES += \
