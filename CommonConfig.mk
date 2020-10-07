@@ -169,6 +169,11 @@ DEVICE_MATRIX_FILE   += $(COMMON_PATH)/vintf/compatibility_matrix.xml
 # Custom NXP NFC vendor interface
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.nxp.nxpnfc.xml
 
+# NFC secure element, eSE1
+ifeq ($(TARGET_HAS_NFC_SECURE_ELEMENT),true)
+DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.nxp.nxpese.xml
+endif
+
 # SIM secure element, SIM1/SIM2
 ifeq ($(PRODUCT_DEVICE_DS),true)
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/android.hardware.secure_element_ds.xml
