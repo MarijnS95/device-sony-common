@@ -23,6 +23,10 @@ PRODUCT_PACKAGES += \
 # TODO Local package in crosshatch \
     libqcomvoiceprocessingdescriptors \
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.1-service.btlinux
+
 # Audio deps
 PRODUCT_PACKAGES += \
     libfmq
