@@ -27,6 +27,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.1-service.btlinux
 
+# Audio
+PRODUCT_PACKAGES += \
+    audio.a2dp.default:64 \
+    audio.bluetooth.default:64 \
+    audio.hearing_aid.default:64 \
+    audio.r_submix.default:64 \
+    audio.usb.default:64
+
 # Audio deps
 PRODUCT_PACKAGES += \
     libfmq
