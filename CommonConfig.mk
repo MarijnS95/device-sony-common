@@ -177,41 +177,6 @@ DEVICE_MATRIX_FILE   += $(COMMON_PATH)/vintf/compatibility_matrix.xml
 # Custom NXP NFC vendor interface
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.nxp.nxpnfc.xml
 
-# SIM secure element, SIM1/SIM2
-# ifeq ($(PRODUCT_DEVICE_DS),true)
-# DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/android.hardware.secure_element_ds.xml
-# else
-# DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/android.hardware.secure_element_ss.xml
-# endif
-
-# Dynamic Power Management
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.qualcomm.qti.dpm.xml
-
-ifeq ($(PRODUCT_DEVICE_DS),true)
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/android.hw.qcradio_ds.xml
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.hw.qcradio_ds.xml
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.hw.radio_ds.xml
-else
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/android.hw.qcradio_ss.xml
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.hw.qcradio_ss.xml
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.hw.radio_ss.xml
-endif
-
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/android.hardware.radio.config.xml
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.hw.radio.internal.xml
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.hw.radio.uceservice.xml
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.hw.imsservices.xml
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.hw.dataservices.xml
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.somc.modem.xml
-
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.hw.cneservices.xml
-
-# Secure Processor
-ifeq ($(TARGET_HAS_SPU),true)
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/vendor.qti.spu.xml
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/android.hardware.authsecret_v1.0.xml
-endif
-
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/vintf/android.hw.keymaster_v4.xml
 
 # Only define bootctrl HAL availability on AB platforms:
