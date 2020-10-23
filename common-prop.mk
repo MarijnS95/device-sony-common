@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Camera
+PRODUCT_PROPERTY_OVERRIDES += ro.hardware.camera=v4l2
+
 # librqbalance enablement
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/vendor/lib/librqbalance.so

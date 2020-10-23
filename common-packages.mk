@@ -23,6 +23,9 @@ PRODUCT_PACKAGES += \
 # TODO Local package in crosshatch \
     libqcomvoiceprocessingdescriptors \
 
+# Camera
+PRODUCT_PACKAGES += camera.v4l2
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.1-service.btlinux
