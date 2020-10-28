@@ -32,11 +32,6 @@ SONY_SYMLINKS := $(foreach lib_dir,lib lib64, \
     ) \
 )
 
-# Special exception for vulkan.qcom.so that is also linked as vulkan.$(TARGET_BOARD_PLATFORM).so
-SONY_SYMLINKS += $(foreach lib_dir,lib lib64, \
-    /odm/$(lib_dir)/hw/vulkan.qcom.so:$(TARGET_COPY_OUT_VENDOR)/$(lib_dir)/hw/vulkan.$(TARGET_BOARD_PLATFORM).so \
-)
-
 include $(SONY_BUILD_SYMLINKS)
 
 endif # BOARD_GPU_DRIVERS == ""
