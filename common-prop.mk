@@ -315,6 +315,10 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.scrypt_params=15:3:1
 
+# Look for vulkan.qcom.so instead of vulkan.$(BOARD_TARGET_PLATFORM).so
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.vulkan=qcom
+
 # RESCUEPARTY? PARTYCRASHER!!
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.disable_rescue=1
