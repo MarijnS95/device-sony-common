@@ -47,6 +47,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.2-service
 
+# GPS:
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.1-service.gpsd
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
