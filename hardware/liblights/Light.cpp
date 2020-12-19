@@ -250,6 +250,10 @@ int Light::setSpeakerLightLocked(const LightState &state)
     writeInt(GREEN_LED_BREATH_FILE, 0);
     writeInt(BLUE_LED_BREATH_FILE, 0);
 
+    writeInt(RED_LED_FILE, red);
+    writeInt(GREEN_LED_FILE, green);
+    writeInt(BLUE_LED_FILE, blue);
+
     if (blink) {
         writeInt(RED_LED_BASE   + "delay_off", offMS);
         writeInt(GREEN_LED_BASE + "delay_off", offMS);
@@ -259,13 +263,9 @@ int Light::setSpeakerLightLocked(const LightState &state)
         writeInt(GREEN_LED_BASE + "delay_on", onMS);
         writeInt(BLUE_LED_BASE  + "delay_on", onMS);
 
-        writeInt(RED_LED_BREATH_FILE, 1);
-        writeInt(GREEN_LED_BREATH_FILE, 1);
-        writeInt(BLUE_LED_BREATH_FILE, 1);
-    } else {
-        writeInt(RED_LED_FILE, red);
-        writeInt(GREEN_LED_FILE, green);
-        writeInt(BLUE_LED_FILE, blue);
+        if (red) writeInt(RED_LED_BREATH_FILE, 1);
+        if (green) writeInt(GREEN_LED_BREATH_FILE, 1);
+        if (blue) writeInt(BLUE_LED_BREATH_FILE, 1);
     }
 
     return 0;
