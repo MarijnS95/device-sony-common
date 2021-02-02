@@ -199,3 +199,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fs_config_files \
     fs_config_dirs
+
+PRODUCT_PACKAGES += \
+    ODMVersionCheck
