@@ -98,9 +98,6 @@ on late-fs
     start surfaceflinger
     start bootanim
 
-    # Start composer early
-    start vendor.qti.hardware.display.composer
-
     # Configstore needed for surfaceflinger props
     # TODO: Will be deprecated in R
     start vendor.configstore-hal
