@@ -12,6 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# BLOB pool, prevents GetPreferredLinearAllocatorId from returning ION
+# Which is not supported on 5.11 (removed from staging tree somewhere
+# after 5.3)
+PRODUCT_PROPERTY_OVERRIDES += debug.stagefright.c2-poolmask=0x80000
+
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += ro.hardware.camera=v4l2
 
