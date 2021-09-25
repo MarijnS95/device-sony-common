@@ -188,7 +188,7 @@ int Light::setLightBacklight(const LightState &state)
             LOG(ERROR) << __func__ << " : Failed to write to " << PERSISTENCE_FILE << ": " << strerror(errno);
         }
         if (lpEnabled != 0) {
-            // Try to get the brigntess though property, otherwise it will
+            // Try to get the brightness though property, otherwise it will
             // set the default brightness, which is defined in BoardConfig.mk.
             brightness = property_get_int32(LP_MODE_BRIGHTNESS_PROPERTY,
                 DEFAULT_LOW_PERSISTENCE_MODE_BRIGHTNESS);
