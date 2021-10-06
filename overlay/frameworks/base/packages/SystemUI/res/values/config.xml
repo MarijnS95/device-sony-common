@@ -37,12 +37,9 @@
     <!-- TODO: Doesn't change anything... -->
     <integer name="status_bar_config_maxNotificationIcons">5</integer>
 
-    <!-- The number of columns in the QuickSettings -->
-    <integer name="quick_settings_num_columns">6</integer>
-
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_default" translatable="false">
-        wifi,cell,bt,dnd,flashlight,rotation,battery,location,airplane,cast,hotspot,inversion,saver,dark,work,night,screenrecord,reverse
+        internet,bt,flashlight,dnd,alarm,airplane,controls,wallet,rotation,battery,cast,screenrecord,mictoggle,cameratoggle,location,hotspot,inversion,saver,dark,work,night,reverse,reduce_brightness
     </string>
 
     <!-- Whether or not we show the number in the bar. -->
