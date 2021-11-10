@@ -14,6 +14,8 @@
 
 -include device/sony/customization/customization.mk
 
+OVERRIDE_PRODUCT_COMPRESSED_APEX := false
+
 # Common path
 COMMON_PATH := device/sony/common
 
