@@ -82,7 +82,7 @@ PRODUCT_PACKAGES += \
     vndk_package
 
 # Force building a recovery image: Needed for OTA packaging to work since Q
-PRODUCT_BUILD_RECOVERY_IMAGE := true
+#PRODUCT_BUILD_RECOVERY_IMAGE := true
 
 KERNEL_PATH := kernel/sony/msm-$(SOMC_KERNEL_VERSION)
 # Sanitized prebuilt kernel headers
