@@ -202,3 +202,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     ODMVersionCheck
+
+# Include the bootctl binary for controlling android.hardware.boot on A/B devices
+PRODUCT_PACKAGES += \
+    bootctl
