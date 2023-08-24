@@ -175,7 +175,8 @@ ifeq ($(BUILD_KERNEL),true)
 BOARD_DTBO_IMAGE_NAME := dtbo-$(TARGET_DEVICE).img
 BOARD_PREBUILT_DTBOIMAGE ?= $(PRODUCT_OUT)/$(BOARD_DTBO_IMAGE_NAME)
 else
-BOARD_PREBUILT_DTBOIMAGE ?= kernel/sony/msm-$(SOMC_KERNEL_VERSION)/common-kernel/dtbo-$(TARGET_DEVICE).img
+BOARD_PREBUILT_DTBOIMAGE ?= common-kernel/did/not/set/a/prebuilt/dtbo/image
+#kernel/sony/msm-$(SOMC_KERNEL_VERSION)/common-kernel/dtbo-$(TARGET_DEVICE).img
 endif
 endif
 
