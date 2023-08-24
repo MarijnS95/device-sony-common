@@ -36,9 +36,9 @@ endif
 #BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0
 
 ifneq ($(BOARD_BOOTCONFIG),)
-  BOARD_BOOTCONFIG += androidboot.memcg=1
+  BOARD_BOOTCONFIG += androidboot.memcg=1 log_buf_len=8M
 else
-  BOARD_KERNEL_CMDLINE += androidboot.memcg=1
+  BOARD_KERNEL_CMDLINE += androidboot.memcg=1 log_buf_len=8M
 endif
 BOARD_KERNEL_CMDLINE += coherent_pool=8M
 BOARD_KERNEL_CMDLINE += printk.devkmsg=on
